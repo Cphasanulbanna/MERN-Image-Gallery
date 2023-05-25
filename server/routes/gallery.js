@@ -2,14 +2,14 @@
 const express = require("express");
 const router = express.Router();
 
+//middleware
 const upload = require("../middlewares/uploadImage");
 
+//upload image api
 router.post("/upload", upload.single("gallery_image"), (req, res) => {
-    // const { imageName } = req.body;
+    if (!req.file) return res.status(400).json({ message: "Image is required" });
     const gallery_image = req.file;
-    console.log(gallery_image);
-    // console.log(imageName);
-    res.json({ message: "hi" });
+    res.status(201).json({ message: "Image uploaded successfully" });
 });
 
 module.exports = router;
