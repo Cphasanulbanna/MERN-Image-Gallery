@@ -13,7 +13,7 @@ router.post("/upload", upload.single("gallery_image"), async (req, res) => {
     const gallery_image = req.file;
     imageNames.push(gallery_image.filename);
 
-    res.status(201).json({ message: "Image uploaded successfully" });
+    res.status(201).json({ message: "Image uploaded successfully", imageNameList: imageNames });
 });
 
 //get images api
