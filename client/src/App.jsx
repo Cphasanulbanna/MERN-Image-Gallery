@@ -9,6 +9,7 @@ import { PlusSmallIcon } from "@heroicons/react/24/solid";
 export const App = () => {
     const [imageName, setImageName] = useState("");
     const [images, setImages] = useState([]);
+    const [progress, setProgress] = useState("");
     useEffect(() => {
         fetchImages();
     }, []);
@@ -16,7 +17,7 @@ export const App = () => {
     const API_URL = "http://localhost:5005/api/";
     const fetchImages = async () => {
         const response = await axios.get(`${API_URL}gallery`);
-        console.log(response);
+        // console.log(response);
     };
 
     const handleImageChange = async (e) => {
@@ -27,9 +28,18 @@ export const App = () => {
         formData.append("gallery_image", imageToUpload);
 
         const response = await axios.post(`${API_URL}gallery/upload/`, formData, {
-            method: "POST",
             headers: {
                 "Content-Type": "multipart/form-data",
+            },
+            onUploadProgress: (progressEvent) => {
+                if (progressEvent.bytes) {
+                    console.log(Math.round((progressEvent.loaded / progressEvent.total) * 100));
+                    setProgress(Math.round((progressEvent.loaded / progressEvent.total) * 100));
+                    const progressBar = document.getElementById("progress");
+                    progressBar.style.width = `${Math.round(
+                        (progressEvent.loaded / progressEvent.total) * 100
+                    )}%`;
+                }
             },
         });
         setImages(response.data.imageNameList);
@@ -57,7 +67,13 @@ export const App = () => {
                     <span>{imageName}</span>
                 </div>
 
-                <hr className="bg-[#EFD9C2] h-[4px] w-[100%] rounded-[5px]" />
+                <div className="w-[100%] h-[10px] rounded-[5px] border-[#EFD9C2] border-[1px] border-solid transition">
+                    <hr
+                        id="progress"
+                        className="bg-[#EFD9C2] h-[100%] w-[0] transition"
+                    />
+                </div>
+
                 <div>
                     <div className="img-card"></div>
                 </div>
