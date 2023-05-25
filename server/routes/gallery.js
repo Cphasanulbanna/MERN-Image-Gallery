@@ -1,11 +1,12 @@
 //modules
 const express = require("express");
+const fs = require("fs");
+const path = require("path");
+
 const router = express.Router();
 
 //middleware
 const upload = require("../middlewares/uploadImage");
-
-const imageNames = [];
 
 //upload image api
 router.post("/upload", upload.single("gallery_image"), async (req, res) => {
@@ -18,9 +19,13 @@ router.post("/upload", upload.single("gallery_image"), async (req, res) => {
 
 //get images api
 router.get("/", (req, res) => {
-    if (!imageNames.length)
-        return res.status(200).json({ message: "Noo images uploaded", imageNameList: imageNames });
-    res.status(200).json({ images: imageNames });
+    const folderPath = path.join(__dirname, "..", "public", "images");
+
+    fs.readdir(folderPath, (err, files) => {
+        if (err) return res.status(400).json({ message: err.message });
+
+        res.status(200).json({ images: files });
+    });
 });
 
 module.exports = router;

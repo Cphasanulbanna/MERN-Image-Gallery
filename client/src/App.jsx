@@ -33,8 +33,6 @@ export const App = () => {
             },
             onUploadProgress: (progressEvent) => {
                 if (progressEvent.bytes) {
-                    console.log(Math.round((progressEvent.loaded / progressEvent.total) * 100));
-                    setProgress(Math.round((progressEvent.loaded / progressEvent.total) * 100));
                     const progressBar = document.getElementById("progress");
                     progressBar.style.width = `${Math.round(
                         (progressEvent.loaded / progressEvent.total) * 100
@@ -44,8 +42,6 @@ export const App = () => {
         });
         setImages(response.data.imageNameList);
     };
-
-    // const addImage = async () => {};
 
     return (
         <section className="h-[100vh] py-[70px]">
