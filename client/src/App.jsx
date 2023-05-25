@@ -9,7 +9,7 @@ import { PlusSmallIcon } from "@heroicons/react/24/solid";
 export const App = () => {
     const [imageName, setImageName] = useState("");
     const [images, setImages] = useState([]);
-    const [progress, setProgress] = useState("");
+
     useEffect(() => {
         fetchImages();
     }, []);
@@ -18,6 +18,7 @@ export const App = () => {
     const fetchImages = async () => {
         const response = await axios.get(`${API_URL}gallery`);
         // console.log(response);
+        setImages(response.data?.images);
     };
 
     const handleImageChange = async (e) => {
@@ -71,7 +72,14 @@ export const App = () => {
                 </div>
 
                 <div>
-                    <div className="img-card"></div>
+                    {images?.map((image) => (
+                        <div className="img-card">
+                            <img
+                                src={`http://localhost:5005/images/${image}`}
+                                alt=""
+                            />
+                        </div>
+                    ))}
                 </div>
             </section>
         </section>
