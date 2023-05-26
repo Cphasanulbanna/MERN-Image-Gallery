@@ -39,7 +39,7 @@ export const Gallery = () => {
         setImageName(imageToUpload?.name);
 
         //progressbar elemnt
-        const progressBar = document.getElementById("progress");
+        let progressBar = document.getElementById("progress");
 
         const formData = new FormData();
         formData.append("gallery_image", imageToUpload);
@@ -118,10 +118,10 @@ export const Gallery = () => {
                         <span className="min-h-[25px]">{imageName}</span>
                     </div>
 
-                    <div className="w-[100%] h-[10px] rounded-[5px] border-[#EFD9C2] border-[1px] border-solid  transition-all ease-in-out mb-[30px] md4:mb-[20px] relative">
+                    <div className="w-[100%] h-[10px]  transition-all ease-in-out mb-[30px] md4:mb-[20px] relative">
                         <hr
                             id="progress"
-                            className="bg-[#EFD9C2] h-[100%] w-[0] transition"
+                            className="bg-[#EFD9C2] h-[100%] w-[0] transition overflow-x-hidden rounded-[5px]"
                         />
                         <span className="absolute z-10 right-0 bottom-[-25px]">{progress}</span>
                     </div>
