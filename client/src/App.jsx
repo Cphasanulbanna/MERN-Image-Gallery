@@ -11,6 +11,7 @@ import { PlusSmallIcon } from "@heroicons/react/24/solid";
 export const App = () => {
     const [imageName, setImageName] = useState("");
     const [images, setImages] = useState([]);
+    const [progress, setProgress] = useState("");
     const API_URL = "http://localhost:5005/api/";
 
     //success notification
@@ -46,6 +47,7 @@ export const App = () => {
                     progressBar.style.width = `${Math.round(
                         (progressEvent.loaded / progressEvent.total) * 100
                     )}%`;
+                    setProgress(progressBar.style.width);
                 }
             },
         });
@@ -56,6 +58,7 @@ export const App = () => {
         setTimeout(() => {
             progressBar.style.width = "0";
             setImageName("");
+            setProgress("");
         }, 1000);
 
         setImages(response.data?.images);
@@ -83,11 +86,12 @@ export const App = () => {
                     <span className="min-h-[25px]">{imageName}</span>
                 </div>
 
-                <div className="w-[100%] h-[10px] rounded-[5px] border-[#EFD9C2] border-[1px] border-solid  transition-all ease-in-out mb-[30px] md4:mb-[20px]">
+                <div className="w-[100%] h-[10px] rounded-[5px] border-[#EFD9C2] border-[1px] border-solid  transition-all ease-in-out mb-[30px] md4:mb-[20px] relative">
                     <hr
                         id="progress"
                         className="bg-[#EFD9C2] h-[100%] w-[0] transition"
                     />
+                    <span className="absolute z-10 right-0 bottom-[-25px]">{progress}</span>
                 </div>
 
                 <div className="flex justify-between items-center flex-wrap  gap-[20px] md4:gap-[15px] sm1:gap-[10px]">
