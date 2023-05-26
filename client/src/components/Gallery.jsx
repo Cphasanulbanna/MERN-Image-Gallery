@@ -118,7 +118,7 @@ export const Gallery = () => {
                         <span className="min-h-[25px]">{imageName}</span>
                     </div>
 
-                    <div className="w-[100%] h-[10px]  transition-all ease-in-out mb-[30px] md4:mb-[20px] relative">
+                    <div className="w-[100%] h-[10px]  transition-all ease-in-out mb-[30px] md4:mb-[20px] relative bg-[rgba(0,0,0,0.1)] rounded-[5px]">
                         <hr
                             id="progress"
                             className="bg-[#EFD9C2] h-[100%] w-[0] transition overflow-x-hidden rounded-[5px]"
