@@ -4,11 +4,28 @@ This is a web application that allows users to upload images, view them in a gal
 
 # Screenshots
 
+# Gallery
+
 ![gallery](./screenshots/gallery.png)
+
+# Gallery Responsive
+
 ![gallery responsive](./screenshots/gallery%20responsive.png)
+
+# Uploading image
+
 ![adding image](./screenshots/adding-image.png)
+
+# Upload image progress
+
 ![image upload progress](./screenshots/upload%20progress.png)
+
+# Image modal
+
 ![image modal](./screenshots/modal.png)
+
+# Image modal Responsive
+
 ![image modal responsive](./screenshots/modal%20responsive.png)
 
 ## Features
