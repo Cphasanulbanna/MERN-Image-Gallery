@@ -26,7 +26,7 @@ This is a web application that allows users to upload images, view them in a gal
 
 # Image modal Responsive
 
-![image modal responsive](./screenshots/modal%20responsive.png)
+![image modal responsive](./screenshots/modal%20resposnive.png)
 
 ## Features
 

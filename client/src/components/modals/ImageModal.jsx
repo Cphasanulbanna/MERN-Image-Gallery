@@ -51,9 +51,9 @@ const ImageModal = ({ children }) => {
                 ref={modalRef}
                 className="modal max-w-[600px] p-[4px] pb-[20px] bg-[#fff] md1:w-[100vw] md1:h-[100vh] relative md1:p-0"
             >
-                <div className="min-w-[550px] min-h-[550px] w-[100%] h-[100%] flex items-center bg-[rgba(1,1,1,0.1)]">
+                <div className="min-w-[550px] min-h-[550px] w-[100%] h-[100%] flex items-center bg-[rgba(1,1,1,0.1)] md1:min-w-[100%]">
                     <img
-                        className="object-contain shadow-[rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px]"
+                        className="object-contain shadow-[rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px] md1:object-contain "
                         src={images[index]}
                         alt="selected image"
                     />
