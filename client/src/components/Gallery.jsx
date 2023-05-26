@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 //icons
 import { PlusSmallIcon } from "@heroicons/react/24/solid";
+
+//components
 import ImageModal from "./modals/ImageModal";
 
 export const Gallery = () => {
@@ -15,6 +17,7 @@ export const Gallery = () => {
     const [progress, setProgress] = useState("");
     const [imageModal, setImageModal] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
     const API_URL = "http://localhost:5005/api/";
 
     //success notification
@@ -67,10 +70,22 @@ export const Gallery = () => {
         setImages(response.data?.images);
     };
 
+    //open modal
     const handleModal = (index) => {
+        window.scrollTo(0, 0);
         setSelectedImageIndex(index);
         setImageModal(true);
     };
+
+    //prevent scrolling when modal open
+    useEffect(() => {
+        if (imageModal) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => (document.body.style.overflow = "unset");
+    }, [imageModal]);
 
     return (
         <>
@@ -80,6 +95,7 @@ export const Gallery = () => {
                         {images}
                         {selectedImageIndex}
                         {setImageModal}
+                        {imageModal}
                     </ImageModal>
                 )}
                 <section className="wrapper">
@@ -115,7 +131,7 @@ export const Gallery = () => {
                             <div
                                 onClick={() => handleModal(index)}
                                 key={index}
-                                className="img-card w-[31%] lg1:w-[48%] md4:w-[47%]"
+                                className="img-card w-[31%] lg1:w-[48%] md4:w-[47%] cursor-pointer"
                                 style={{
                                     boxShadow:
                                         "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",

@@ -12,7 +12,7 @@ export default {
             md4: { max: "768px" },
             md3: { max: "680px" },
             md2: { max: "640px" },
-            md1: { max: "540px" },
+            md1: { max: "550px" },
             sm3: { max: "480px" },
             sm2: { max: "420px" },
             sm1: { max: "360px" },

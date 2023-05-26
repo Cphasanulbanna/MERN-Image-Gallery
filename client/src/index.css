@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -41,7 +45,11 @@ body {
     font-size: 16px;
     display: flex;
     justify-content: center;
-    align-items: centerc;
+    align-items: center;
+    color: #fff;
+}
+.btn:hover {
+    opacity: 0.9;
 }
 
 ul {
