@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* general styles */
 * {
     margin: 0;
     padding: 0;
@@ -53,4 +55,16 @@ svg {
 }
 input:hover {
     cursor: pointer;
+}
+
+/* general responsive styles */
+@media all and (max-width: 768px) {
+    .wrapper {
+        width: 80%;
+    }
+}
+@media all and (max-width: 480px) {
+    .wrapper {
+        width: 90%;
+    }
 }

@@ -55,13 +55,15 @@ export const App = () => {
     };
 
     return (
-        <section className="py-[70px]">
+        <section className="py-[70px] sm3:py-[40px]">
             <section className="wrapper">
-                <h1 className="text-[#111] text-[28px] text-center font-bold">Photo Gallery</h1>
-                <h2 className="text=[#ACACAC] text-[22px] text-center mb-[35px]">
+                <h1 className="text-[#111] text-[28px] md4:text-[26px] sm3:text-[24px] text-center font-bold">
+                    Photo Gallery
+                </h1>
+                <h2 className="text=[#ACACAC] text-[22px] text-center mb-[35px] md3:text-[20px] sm3:text-[18px] md4:mb-[26px] sm3:mb-[20px]">
                     A picture is worth thousand words.
                 </h2>
-                <div className="middle mb-[25px] flex flex-col justify-center items-center gap-[10px]">
+                <div className="middle mb-[25px] md4:mb-[18px] md2:mb-[12px] flex flex-col justify-center items-center gap-[10px]">
                     <button className="text-[#EED8C0] relative z-20 ">
                         <input
                             type="file"
@@ -74,18 +76,18 @@ export const App = () => {
                     <span className="min-h-[25px]">{imageName}</span>
                 </div>
 
-                <div className="w-[100%] h-[10px] rounded-[5px] border-[#EFD9C2] border-[1px] border-solid  transition-all ease-in-out mb-[30px]">
+                <div className="w-[100%] h-[10px] rounded-[5px] border-[#EFD9C2] border-[1px] border-solid  transition-all ease-in-out mb-[30px] md4:mb-[20px]">
                     <hr
                         id="progress"
                         className="bg-[#EFD9C2] h-[100%] w-[0] transition"
                     />
                 </div>
 
-                <div className="flex justify-between items-center flex-wrap  gap-[20px]">
+                <div className="flex justify-between items-center flex-wrap  gap-[20px] md4:gap-[15px] sm1:gap-[10px]">
                     {images?.map((image, index) => (
                         <div
                             key={index}
-                            className="img-card w-[32%]"
+                            className="img-card w-[31%] lg1:w-[48%] md4:w-[47%]"
                             style={{
                                 boxShadow:
                                     "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
