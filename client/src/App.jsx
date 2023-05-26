@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 //packages
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //icons
 import { PlusSmallIcon } from "@heroicons/react/24/solid";
@@ -10,6 +12,9 @@ export const App = () => {
     const [imageName, setImageName] = useState("");
     const [images, setImages] = useState([]);
     const API_URL = "http://localhost:5005/api/";
+
+    //success notification
+    const notify = () => toast.success("Image uploaded successfully", { autoClose: 800 });
 
     useEffect(() => {
         fetchImages();
@@ -44,6 +49,8 @@ export const App = () => {
                 }
             },
         });
+
+        notify();
 
         //clearing image name & progress bar
         setTimeout(() => {
@@ -101,6 +108,7 @@ export const App = () => {
                     ))}
                 </div>
             </section>
+            <ToastContainer />
         </section>
     );
 };
