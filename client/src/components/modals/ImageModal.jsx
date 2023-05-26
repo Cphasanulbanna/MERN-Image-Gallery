@@ -24,6 +24,23 @@ const ImageModal = ({ children }) => {
         setImageModal(false);
     };
 
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            if (e.key === "ArrowLeft") {
+                viewPrevImage();
+            }
+            if (e.key === "ArrowRight") {
+                viewNextImage();
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyPress);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyPress);
+        };
+    }, [index]);
+
     return (
         <section
             onClick={() => setImageModal(false)}
