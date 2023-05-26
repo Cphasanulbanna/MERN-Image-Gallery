@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 //packages
 import axios from "axios";
@@ -74,14 +74,14 @@ export const Gallery = () => {
 
     return (
         <>
-            {imageModal && (
-                <ImageModal>
-                    {images}
-                    {selectedImageIndex}
-                </ImageModal>
-            )}
-
             <section className="py-[70px] sm3:py-[40px]">
+                {imageModal && (
+                    <ImageModal>
+                        {images}
+                        {selectedImageIndex}
+                        {setImageModal}
+                    </ImageModal>
+                )}
                 <section className="wrapper">
                     <h1 className="text-[#111] text-[28px] md4:text-[26px] sm3:text-[24px] text-center font-bold">
                         Photo Gallery
