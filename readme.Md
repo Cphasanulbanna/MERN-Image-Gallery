@@ -44,10 +44,11 @@ This is a web application that allows users to upload images, view them in a gal
 -   react-toastify
 -   Node js
 -   Express js
+-   multer
 
 ## Installation
 
 -   Clone git repository: "https://github.com/Cphasanulbanna/MERN-Image-Gallery/"
-    => git clone "https://github.com/Cphasanulbanna/MERN-Image-Gallery/"
-    => npm i
-    => npm run dev
+-   git clone "https://github.com/Cphasanulbanna/MERN-Image-Gallery/"
+-   npm i
+-   npm run dev
