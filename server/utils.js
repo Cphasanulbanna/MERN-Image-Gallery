@@ -1,3 +1,4 @@
+//modules
 const fs = require("fs");
 const path = require("path");
 
@@ -18,7 +19,6 @@ const fetchImages = (req, res) => {
             return baseURL + file;
         });
 
-        console.log(req.method);
         if (req.method === "POST")
             return res
                 .status(200)

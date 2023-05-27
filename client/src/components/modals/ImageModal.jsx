@@ -7,8 +7,6 @@ const ImageModal = ({ children }) => {
     //index of selectedImage
     const [index, setIndex] = useState(imageIndex);
 
-    console.log(index);
-
     //view previous image
     const viewPrevImage = () => {
         setIndex(index - 1 < 0 ? images.length - 1 : index - 1);

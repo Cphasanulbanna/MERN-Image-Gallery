@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //packages
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 //icons
 import { PlusSmallIcon } from "@heroicons/react/24/solid";
@@ -103,7 +104,7 @@ export const Gallery = () => {
                         Photo Gallery
                     </h1>
                     <h2 className="text=[#ACACAC] text-[22px] text-center mb-[35px] md3:text-[20px] sm3:text-[18px] md4:mb-[26px] sm3:mb-[20px]">
-                        A picture is worth thousand words.
+                        "A picture is worth thousand words."
                     </h2>
                     <div className="middle mb-[25px] md4:mb-[18px] md2:mb-[12px] flex flex-col justify-center items-center gap-[10px]">
                         <button className="text-[#EED8C0] relative z-20 ">
@@ -137,9 +138,9 @@ export const Gallery = () => {
                                         "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
                                 }}
                             >
-                                <img
+                                <LazyLoadImage
+                                    alt={"img"}
                                     src={image}
-                                    alt="img"
                                 />
                             </div>
                         ))}
