@@ -20,7 +20,7 @@ export const Gallery = () => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
     const API_URL = "http://localhost:5005/api/";
-    const LIVE_URL = "https://gallery-server-zeta.vercel.app/api/";
+    const LIVE_URL = "https://gallery-server-rose.vercel.app/api/";
 
     //success notification
     const notify = () => toast.success("Image uploaded successfully", { autoClose: 800 });
