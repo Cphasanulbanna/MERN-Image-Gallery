@@ -31,7 +31,7 @@ export const Gallery = () => {
 
     //fetch all images
     const fetchImages = async () => {
-        const response = await axios.get(`${LIVE_URL}gallery`);
+        const response = await axios.get(`${API_URL}gallery`);
         setImages(response.data?.images);
     };
 
@@ -46,7 +46,7 @@ export const Gallery = () => {
         const formData = new FormData();
         formData.append("gallery_image", imageToUpload);
 
-        const response = await axios.post(`${LIVE_URL}gallery/upload/`, formData, {
+        const response = await axios.post(`${API_URL}gallery/upload/`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
