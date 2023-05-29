@@ -19,8 +19,8 @@ export const Gallery = () => {
     const [imageModal, setImageModal] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-    // const API_URL = "http://localhost:5005/api/";
-    const LIVE_URL = "https://gallery-client-beta.vercel.app/api/";
+    const API_URL = "http://localhost:5005/api/";
+    // const LIVE_URL = "https://gallery-client-beta.vercel.app/api/";
 
     //success notification
     const notify = () => toast.success("Image uploaded successfully", { autoClose: 800 });
@@ -31,7 +31,7 @@ export const Gallery = () => {
 
     //fetch all images
     const fetchImages = async () => {
-        const response = await axios.get(`${LIVE_URL}gallery`);
+        const response = await axios.get(`${API_URL}gallery`);
         setImages(response.data?.images);
     };
 
@@ -46,7 +46,7 @@ export const Gallery = () => {
         const formData = new FormData();
         formData.append("gallery_image", imageToUpload);
 
-        const response = await axios.post(`${LIVE_URL}gallery/upload/`, formData, {
+        const response = await axios.post(`${API_URL}gallery/upload/`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
