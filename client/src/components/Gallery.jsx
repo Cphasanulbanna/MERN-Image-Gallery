@@ -19,9 +19,7 @@ export const Gallery = () => {
     const [imageModal, setImageModal] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-    // const API_URL = "http://localhost:5005/api/";
     const API_URL = "https://gallery-server-n3lc.onrender.com/api/";
-    // const LIVE_URL = "https://gallery-client-beta.vercel.app/api/";
 
     //success notification
     const notify = () => toast.success("Image uploaded successfully", { autoClose: 800 });
