@@ -142,7 +142,7 @@ export const Gallery = () => {
                             >
                                 <LazyLoadImage
                                     alt={"img"}
-                                    src={image}
+                                    src={`${API_URL}${image}`}
                                 />
                             </div>
                         ))}

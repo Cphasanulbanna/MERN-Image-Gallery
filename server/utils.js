@@ -15,8 +15,11 @@ const fetchImages = (req, res) => {
             });
 
         const baseURL = `${req.protocol}://${req.get("host")}/images/`;
+        // const imageFullPath = files?.map((file) => {
+        //     return baseURL + file;
+        // });
         const imageFullPath = files?.map((file) => {
-            return baseURL + file;
+            return file;
         });
 
         if (req.method === "POST")
